@@ -1,0 +1,61 @@
+{
+    "acceptedApiChanges": [
+        {
+            "type": "org.gradle.api.tasks.diagnostics.OutgoingVariantsReportTask",
+            "member": "Method org.gradle.api.tasks.diagnostics.OutgoingVariantsReportTask.getShowAll()",
+            "acceptation": "Task semantics are changing anyways, task type is now abstract",
+            "changes": [
+                "Method is now abstract"
+            ]
+        }, {
+            "type": "org.gradle.api.tasks.diagnostics.OutgoingVariantsReportTask",
+            "member": "Method org.gradle.api.tasks.diagnostics.OutgoingVariantsReportTask.getVariantName()",
+            "acceptation": "Task semantics are changing anyways, task type is now abstract",
+            "changes": [
+                "Method is now abstract"
+            ]
+        }, {
+            "type": "org.gradle.api.Project",
+            "member": "Method org.gradle.api.Project.getVersion()",
+            "acceptation": "Migrated to Provider API",
+            "changes": [
+                "Method return type has changed"
+            ]
+        }, {
+            "type": "org.gradle.api.Project",
+            "member": "Method org.gradle.api.Project.setVersion(java.lang.Object)",
+            "acceptation": "Migrated to Provider API",
+            "changes": [
+                "Method has been removed"
+            ]
+        }, {
+            "type": "org.gradle.kotlin.dsl.precompile.PrecompiledProjectScript",
+            "member": "Class org.gradle.kotlin.dsl.precompile.PrecompiledProjectScript",
+            "acceptation": "Migrated to Provider API",
+            "changes": [
+                "org.gradle.kotlin.dsl.support.delegates.ProjectDelegate.setVersion(java.lang.Object)"
+            ]
+        }, {
+            "type": "org.gradle.kotlin.dsl.KotlinBuildScript",
+            "member": "Class org.gradle.kotlin.dsl.KotlinBuildScript",
+            "acceptation": "Migrated to Provider API",
+            "changes": [
+                "org.gradle.kotlin.dsl.support.delegates.ProjectDelegate.setVersion(java.lang.Object)"
+            ]
+        }, {
+            "type": "org.gradle.api.publish.maven.MavenPublication",
+            "member": "Method org.gradle.api.publish.maven.MavenPublication.getVersion()",
+            "acceptation": "Migrated to Provider API",
+            "changes": [
+                "Method return type has changed"
+            ]
+        }, {
+            "type": "org.gradle.api.publish.maven.MavenPublication",
+            "member": "Method org.gradle.api.publish.maven.MavenPublication.setVersion(java.lang.String)",
+            "acceptation": "Migrated to Provider API",
+            "changes": [
+                "Method has been removed"
+            ]
+        }
+    ]
+}
