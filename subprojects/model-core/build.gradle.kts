@@ -1,0 +1,55 @@
+plugins {
+    id("gradlebuild.distribution.api-java")
+}
+
+dependencies {
+    api(project(":core-api"))
+
+    implementation(project(":base-services"))
+    implementation(project(":logging"))
+    implementation(project(":persistent-cache"))
+    implementation(project(":base-services-groovy"))
+    implementation(project(":messaging"))
+    implementation(project(":snapshots"))
+
+    implementation(libs.futureKotlin("stdlib"))
+    implementation(libs.inject)
+    implementation(libs.groovy)
+    implementation(libs.slf4jApi)
+    implementation(libs.guava)
+    implementation(libs.commonsLang)
+    implementation(libs.asm)
+
+    testFixturesApi(testFixtures(project(":diagnostics")))
+    testFixturesApi(testFixtures(project(":core")))
+    testFixturesImplementation(project(":internal-integ-testing"))
+    testFixturesImplementation(libs.guava)
+
+    testImplementation(project(":process-services"))
+    testImplementation(project(":file-collections"))
+    testImplementation(project(":native"))
+    testImplementation(project(":resources"))
+    testImplementation(testFixtures(project(":core-api")))
+
+    integTestImplementation(project(":platform-base"))
+
+    testRuntimeOnly(project(":distributions-core")) {
+        because("Tests instantiate DefaultClassLoaderRegistry which requires a 'gradle-plugins.properties' through DefaultPluginModuleRegistry")
+    }
+    integTestDistributionRuntimeOnly(project(":distributions-native")) {
+        because("ModelRuleCachingIntegrationTest requires a rules implementation")
+    }
+}
+
+strictCompile {
+    ignoreRawTypes() // raw types used in public API
+}
+
+classycle {
+    excludePatterns.add("org/gradle/model/internal/core/**")
+    excludePatterns.add("org/gradle/model/internal/inspect/**")
+    excludePatterns.add("org/gradle/api/internal/tasks/**")
+    excludePatterns.add("org/gradle/model/internal/manage/schema/**")
+    excludePatterns.add("org/gradle/model/internal/type/**")
+    excludePatterns.add("org/gradle/api/internal/plugins/*")
+}
