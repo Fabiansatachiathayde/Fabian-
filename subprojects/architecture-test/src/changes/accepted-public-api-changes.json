@@ -1,0 +1,12 @@
+{
+    "acceptedApiChanges": [
+        {
+            "type": "org.gradle.api.plugins.WarPlugin",
+            "member": "Method org.gradle.api.plugins.WarPlugin.configureConfigurations(org.gradle.api.artifacts.ConfigurationContainer)",
+            "acceptation": "Corrected method not meant for public use to be private",
+            "changes": [
+                "Method has been removed"
+            ]
+        }
+    ]
+}
