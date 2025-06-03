@@ -1,0 +1,24 @@
+plugins {
+    id 'base'
+}
+
+version = 1.0
+archivesBaseName = "gradle"
+
+tasks.register('myZip', Zip) {
+    from 'somedir'
+}
+
+tasks.register('myOtherZip', Zip) {
+    archiveAppendix = 'wrapper'
+    archiveClassifier = 'src'
+    from 'somedir'
+}
+
+tasks.register('echoNames') {
+    doLast {
+        println "Project name: ${project.name}"
+        println myZip.archiveFileName.get()
+        println myOtherZip.archiveFileName.get()
+    }
+}
