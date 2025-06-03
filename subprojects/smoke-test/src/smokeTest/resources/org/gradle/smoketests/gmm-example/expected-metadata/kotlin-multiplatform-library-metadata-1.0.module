@@ -1,0 +1,18 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../kotlin-multiplatform-library-linuxx64/1.0/kotlin-multiplatform-library-linuxx64-1.0.module",
+    "group": "example",
+    "module": "kotlin-multiplatform-library-linuxx64",
+    "version": "1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.1"
+    }
+  },
+  "variants": []
+}
