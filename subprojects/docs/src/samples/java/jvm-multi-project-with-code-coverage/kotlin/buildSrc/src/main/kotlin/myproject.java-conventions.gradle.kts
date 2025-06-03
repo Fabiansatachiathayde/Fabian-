@@ -1,0 +1,25 @@
+plugins {
+    java
+    jacoco
+}
+
+version = "1.0.2"
+group = "org.gradle.sample"
+
+repositories {
+    mavenCentral()
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+}
+
+// Do not generate reports for individual projects
+tasks.jacocoTestReport {
+    enabled = false
+}
