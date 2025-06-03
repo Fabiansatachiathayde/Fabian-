@@ -1,0 +1,62 @@
+[${classMetadata.className}]
+= ${classMetadata.simpleName}
+
+Api Documentation ...
+Subtypes...
+
+${classMetadata.deprecated ? "Deprecated" : ""}
+
+== Properties
+
+
+|===
+|Property |Description
+<% declaredProperties.each { property ->
+ out << "|"
+    out << property.name
+out << '\n'
+out << '|'
+out << parseJavadocDescription(property.rawCommentText)
+out << '\n'
+}
+%>
+|===
+
+== Methods
+
+|===
+|Method |Description
+<% declaredMethods.each { method ->
+out << "|"
+out << method.name
+out << '\n'
+out << '|'
+out << parseJavadocDescription(method.rawCommentText)
+out << '\n'
+}
+%>
+|===
+
+== Property details
+
+<% declaredProperties.each { property ->
+out << "=== link:{groovyDslPath}/classMetadata.className[${property.type.name}] ${property.name}"
+out << '\n'
+out << '\n'
+out << parseJavadoc(property.rawCommentText)
+out << '\n'
+out << '\n'
+}
+%>
+
+== Method details
+
+<% declaredMethods.each { method ->
+out << "=== link:{groovyDslPath}/${method.returnType.name}.adoc[${method.returnType.name}] ${method.name}(${method.parameters.collect { it.signature }.join(", ") })"
+out << '\n'
+out << '\n'
+out << parseJavadoc(method.rawCommentText)
+out << '\n'
+out << '\n'
+}
+%>
