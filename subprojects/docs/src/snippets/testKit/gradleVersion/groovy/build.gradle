@@ -1,0 +1,23 @@
+plugins {
+    id 'groovy'
+}
+
+dependencies {
+    testImplementation localGroovy()
+    testImplementation gradleTestKit()
+}
+
+dependencies {
+    testImplementation('org.spockframework:spock-core:2.0-groovy-3.0') {
+        exclude group: 'org.codehaus.groovy'
+    }
+    testImplementation('org.junit.jupiter:junit-jupiter-api')
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
+
+repositories {
+    mavenCentral()
+}
